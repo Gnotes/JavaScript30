@@ -13,3 +13,7 @@ These are meant to be 1:1 copies of what is done in the video. If you found a be
 The starter files + solutions will be updated if/when the videos are updated. 
 
 Thank!
+
+## JS哇哈哈😀
+
+看样子是一个JS+html的好东西，先学习下...
