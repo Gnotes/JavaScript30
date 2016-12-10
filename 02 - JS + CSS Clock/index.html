@@ -12,8 +12,18 @@
         <div class="hand hour-hand"></div>
         <div class="hand min-hand"></div>
         <div class="hand second-hand"></div>
+        <div class="clock-text">I'm clock</div>
       </div>
     </div>
+
+    <div class="rotate">
+      <div class="rotate-face">
+        <div class="plus plus-h"></div>
+        <div class="plus plus-v"></div>
+      </div>
+      <div class="rotate-text">I'm rotate</div>
+    </div>
+
 
 
   <style>
@@ -41,6 +51,8 @@
       margin:50px auto;
       position: relative;
       padding:2rem;
+      /*box-shadow:X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色 投影方式 */
+      /*box-shadow: h-shadow v-shadow blur spread color inset;*/
       box-shadow:
         0 0 0 4px rgba(0,0,0,0.1),
         inset 0 0 0 3px #EFEFEF,
@@ -66,12 +78,54 @@
       transition: all 0.05s;
       transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
+
+    .clock-text{
+      color: white;
+      top:80%;
+      position: relative;
+    }
+
+    .rotate-text{
+      color: white;
+      top: 80%;
+      position: absolute;
+      left: 40%;
+    }
+
+    .rotate{
+      width: 30rem;
+      height: 30rem;
+      border:20px solid white;
+      border-radius:50%;
+      margin:50px auto;
+      position: relative;
+      padding:2rem;
+    }
+
+    .rotate-face{
+      width: 100%;
+      height: 100%;
+    }
+
+    .plus{
+      width: 100%;
+      height:6px;
+      background: black;
+      position: absolute;
+      top: 50%;
+    }
+
+    .plus-v{
+      transform: rotate(90deg);
+    }
 </style>
 
 <script>
-  const secondHand = document.querySelector('.second-hand');
-  const minsHand = document.querySelector('.min-hand');
-  const hourHand = document.querySelector('.hour-hand');
+  const secondHand  = document.querySelector('.second-hand');
+  const minsHand    = document.querySelector('.min-hand');
+  const hourHand    = document.querySelector('.hour-hand');
+  const face        = document.querySelector('.rotate-face');
+  let   angle       = 0;
 
   function setDate() {
     const now = new Date();
@@ -89,7 +143,13 @@
     hourHand.style.transform = `rotate(${hourDegrees}deg)`;
   }
 
+  function rotate(){
+    angle = (1 + angle) % 360 ;
+    face.style.transform = `rotate(${angle}deg)`
+  }
+
   setInterval(setDate, 1000);
+  setInterval(rotate,100);
 
 </script>
 </body>
