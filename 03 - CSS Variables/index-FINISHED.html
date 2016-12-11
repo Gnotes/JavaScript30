@@ -21,13 +21,22 @@
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
   <style>
+    /* :root 伪类，匹配文档根元素 */
     :root {
+      /* 
+      * css 变量的声明
+      * --变量名:变量值;
+      */
       --base: #ffc600;
       --spacing: 10px;
       --blur: 10px;
     }
 
     img {
+      /**
+       * 变量使用:var 函数调用
+       * var(--变量名)
+       */
       padding: var(--spacing);
       background: var(--base);
       filter: blur(var(--blur));
