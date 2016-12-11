@@ -29,6 +29,7 @@
 
     .panel {
       background:#6B0F9C;
+      /*向内阴影😀*/
       box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
       color:white;
       text-align: center;
@@ -36,7 +37,7 @@
       /* Safari transitionend event.propertyName === flex */
       /* Chrome + FF transitionend event.propertyName === flex-grow */
       transition:
-        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11), /* 字体大小过渡，flex自适应过渡，背景过渡 */
         flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
         background 0.2s;
       font-size: 20px;
@@ -59,15 +60,15 @@
     .panel > * {
       margin:0;
       width: 100%;
-      transition:transform 0.5s;
+      transition:transform 0.5s; /* 变换过渡的时间 */
       flex: 1 0 auto;
       display:flex;
       justify-content: center;
       align-items: center;
     }
 
-    .panel > *:first-child { transform: translateY(-100%); }
-    .panel.open-active > *:first-child { transform: translateY(0); }
+    .panel > *:first-child { transform: translateY(-100%);} /* 第一个子节点默认向上偏移 100%，相当于影藏 */
+    .panel.open-active > *:first-child { transform: translateY(0); } /* active的时候Y轴偏移量为0，回到原来的位置，关键transform 变换有个过渡时间，这样看起来就是慢慢执行的了，NB，活到老，学到老 */
     .panel > *:last-child { transform: translateY(100%); }
     .panel.open-active > *:last-child { transform: translateY(0); }
 
@@ -125,11 +126,18 @@
   <script>
     const panels = document.querySelectorAll('.panel');
 
+    /**
+     * [toggleOpen] toggle .open 类，添加或删除变换、过渡效果
+     */
     function toggleOpen() {
-      console.log('Hello');
       this.classList.toggle('open');
     }
 
+    /**
+     * [toggleActive] 在过渡类型为flex，结束的时候toggle文字active状态
+     * @param  {[type]} e [description]
+     * @return {[type]}   [description]
+     */
     function toggleActive(e) {
       console.log(e.propertyName);
       if (e.propertyName.includes('flex')) {
