@@ -2,6 +2,8 @@
 
 [**CSS 变量**](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables)
 
+<img src="./css_variable.png" width="400">
+
 ## :root伪类
 
 `:root` 伪类，匹配文档根元素
