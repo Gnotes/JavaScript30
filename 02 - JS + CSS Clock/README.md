@@ -1,5 +1,7 @@
 # JS30 - 02
 
+<img src="./01.gif" width="400">
+
 ## box-shadow
 - [box-shadow 详解](http://www.w3cplus.com/content/css3-box-shadow)
 ```
