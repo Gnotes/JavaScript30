@@ -1,5 +1,7 @@
 # JS30 - 01
 
+<img src="./drum.png" width="400" />
+
 ## Summary
 ```
 # Element API
