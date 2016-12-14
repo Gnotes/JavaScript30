@@ -33,11 +33,13 @@
     //   }
     // });
 
+    // 任意一个满足条件返回
     const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
 
     console.log({isAdult});
     // Array.prototype.every() // is everyone 19?
 
+    // 所有满足条件返回
     const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
     console.log({allAdults});
 
@@ -46,6 +48,7 @@
     // find the comment with the ID of 823423
 
 
+    // 查找满足条件并返回该值
     const comment = comments.find(comment => comment.id === 823423);
 
     console.log(comment);
@@ -53,10 +56,16 @@
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
+    
+    // 查找满足条件并返回下标
     const index = comments.findIndex(comment => comment.id === 823423);
     console.log(index);
 
     // comments.splice(index, 1);
+
+    console.log(comments.slice(0, index))
+
+    console.log(comments.slice(index + 1))
 
     const newComments = [
       ...comments.slice(0, index),
